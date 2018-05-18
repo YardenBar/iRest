@@ -1,0 +1,71 @@
+﻿@model MyApplication.Models.ViewModel.InformationViewModel
+<link rel="stylesheet" href="~/Content/Register.css">
+
+<!-- title  -->
+<div class="container">
+
+    <h5>Please enter your details: </h5>
+
+</div>
+<!-- body -->
+<!--user details -->
+<body background="~/image/woodenBack.jpg">
+
+    <div id="login-div">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div>
+                <div>
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                @Html.EditorFor(model => model.LastName)
+                <div>
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.FirstName)
+                </div>
+                @Html.EditorFor(model => model.FirstName)
+                <div>
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                @Html.EditorFor(model => model.Email)
+                <div>
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                @Html.EditorFor(model => model.Password)
+                <div>
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.PasswordValid)
+                </div>
+                @Html.EditorFor(model => model.PasswordValid)
+                <div>
+                    @Html.ValidationMessageFor(model => model.PasswordValid)
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="ismember"> I want to be a Member
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" name="submitBtn" value="Register" class="log-and-clear-Button log-block log1" />
+                    <input type="reset" name="clearBtn" value="Clear" class="log-and-clear-Button log-block clear1" />
+                </div>
+            </div>
+        }
+    </div>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
